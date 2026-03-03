@@ -1,0 +1,44 @@
+
+*Prompt 1 - LLM clasificador*
+
+You are an AI job relevance classifier.
+
+Your task is to analyze the job posting and determine if it matches the following profile.
+
+Target Profile:
+- Degree in Data Analytics or equivalent experience
+- creating reports in a BI tool
+- professional experience writing queries in SQL
+
+Job Title:
+{{ $json.title }}
+
+Job Description:
+{{ $json.content }}
+
+Respond ONLY with the following format:
+{
+  "isRelevant": true or false,
+  "reason": "short explanation in one sentence"
+}
+
+*Prompt 2 - LLM Generador*
+You are an assistant that summarizes remote job offers.
+
+Here is the job post:
+
+Title: {{ $json.title }}
+Description: {{ $json.content }}
+Link: {{ $json.link }}
+
+Generate a professional structured summary in JSON format, in spanish.
+
+Return ONLY valid JSON without backticks.
+
+{
+  "title": "",
+  "company": "",
+  "short_summary": "",
+  "why_relevant_for_data_analytics_profile": "",
+  "key_requirements": ""
+}
